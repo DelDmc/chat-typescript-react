@@ -9,12 +9,9 @@ const SendMessage: React.FC<SendMessageProps> = ({ scroll, users, setMessages })
 
   const handleRoleChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
     const selectedOption = event.target.options[event.target.selectedIndex] as HTMLOptionElement;
-    console.log(selectedOption)
     const selectedUserId= +selectedOption.getAttribute('data-user')!;
-    console.log("selectedUserId",selectedUserId)
     if (!isNaN(selectedUserId)) {
       const user = users.find((user) => user.id === selectedUserId);
-      console.log("user", user)
       if (user !== undefined) {
         setCurrentUser(user);
       } else {
